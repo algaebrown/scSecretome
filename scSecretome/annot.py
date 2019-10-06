@@ -50,3 +50,11 @@ def read_HPA(tsv_file):
     base = '~/human_protein_atlas/'
     df = pd.read_csv(base+tsv_file, header = 0, index_col = 0, sep = '\t')
     return(df.index.values)
+
+def human_mouse_homolog(filename = '~/HMD_HumanPhenotype.rpt'):
+    df = pd.read_csv(filename, header = None, sep = '\t')
+    
+    # save only useful information
+    df = df[[0,4]]
+    df.columns = ['Human', 'Mouse']
+    return(df)
