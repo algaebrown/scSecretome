@@ -23,6 +23,15 @@ def read_haemapedia(species = 'human'):
     df.columns = ['Gene Symbol', 'Lineage']
     return df
 
+def niche_specific_genes(filename = '~/haemopedia/Tikhonova2019_microenv_parsed.xlsx'):
+    '''
+    read cluster specific genes from Tikhonova 2019, nature, The bone marrow microenvironment at single-cell resolution
+    the original excel is big, so we have a parsed version
+    '''
+    df = pd.read_excel(filename, header = 0)
+    df = df[['Gene Symbol', 'Lineage']]
+    return(df)
+
 def housekeeping(file = '/home/hsher/tnbc_scrnaseq/data/housekeepers.txt'):
     '''
     retrun housekeeping gene from a https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5465819/
