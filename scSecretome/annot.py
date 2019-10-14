@@ -45,7 +45,7 @@ def housekeeping(file = '/home/hsher/tnbc_scrnaseq/data/housekeepers.txt'):
     return(df[0].values)
 
 
-def read_HPA(tsv_file):
+def read_HPA(tsv_file, return_all = False):
     '''
     extract gene symbols from human protein altas
     
@@ -58,6 +58,8 @@ def read_HPA(tsv_file):
     '''
     base = '~/human_protein_atlas/'
     df = pd.read_csv(base+tsv_file, header = 0, index_col = 0, sep = '\t')
+    if return_all:
+        return(df[["Gene description", "RNA cell line specificity", "RNA blood lineage specificity score"]])
     return(df.index.values)
 
 def human_mouse_homolog(filename = '~/HMD_HumanPhenotype.rpt'):
