@@ -69,3 +69,15 @@ def human_mouse_homolog(filename = '~/HMD_HumanPhenotype.rpt'):
     df = df[[0,4]]
     df.columns = ['Human', 'Mouse']
     return(df)
+
+def pellin_lineage():
+    '''
+    return lineage specific genes used by Pellin et. al (2019)
+    See supplementary figure 4 caption
+    '''
+    genes = ['HLF', 'PLEK', 'HBB', 'CLC', 'ELANE', 'SAMHD1', 'MPO', 'IRF8', 'DNTT', 'CD34', 'CD164']
+    lineage = ['P', 'Meg', 'E', 'BEMP','N', 'M', 'undifferentiated granulocytes', 'DC', 'Ly', 'Other', 'Other']
+    df = pd.DataFrame(columns = ['Gene Symbol', 'Lineage'])
+    df['Gene Symbol'] = genes
+    df['Lineage'] = lineage
+    return(df)
