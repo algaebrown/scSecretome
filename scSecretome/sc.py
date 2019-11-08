@@ -3,6 +3,7 @@ import pandas as pd
 # import annotation
 from scSecretome.annot import *
 import scanpy as sc
+from sklearn import preprocessing
 
 sc.settings.verbosity = 3             # verbosity: errors (0), warnings (1), info (2), hints (3)
 sc.logging.print_versions()
@@ -59,6 +60,23 @@ def benchmarking(adata, species = 'human'):
     hk = list(set(housekeeper).intersection(set(adata.var.index)))
     adata.obs['percent_housekeeper'] = np.count_nonzero(adata[:, hk].X, axis=1) / len(housekeeper)
 
+def lineage_score(adata, ln, ln_name):
+    '''
+    calculate lineage score by 1. min-max scalar 2. sum 3. normalize by No. genes
+    
+    ln: lineage specific genes
+    adata: single cell objects
+    ln_name: lineage name, str
+    
+    output: lineage score in adata obs
+    '''
+    # min max scalar
+    min_max_scaler = preprocessing.MinMaxScaler()
+    scaled_lineage_matrix = min_max_scaler.fit_transform(adata[:, ln].X)
+            
+    # some lineage might have more genes, others don't. Therefore normalize by how many genes they have
+    adata.obs[ln_name] =  np.sum(scaled_lineage_matrix, axis=1)/scaled_lineage_matrix.shape[1]
+    
 def lineage_calling(adata, species = 'human'):
     '''
     finding lineage-specific genes for normalized data
@@ -71,9 +89,13 @@ def lineage_calling(adata, species = 'human'):
     # % blood lineage specific genes showing up
     for g in read_haemapedia(species = species).groupby('Lineage'):
         ln = list(set(g[1]['Gene Symbol'].values).intersection(set(adata.var.index)))
+        
+        # LINEAGE CALLING 
         if len(ln) > 0:
             # g[0]: name of lineage, g[1] Gene symbol dataframe
-            adata.obs[g[0]] = np.sum(adata[:, ln].X, axis=1)
+            
+            # normalize by max and min of each lineage specific genes
+            lineage_score(adata, ln, g[0])
         else:
             print('no blood lineage specific genes detected, check species')
     
@@ -86,7 +108,10 @@ def lineage_calling(adata, species = 'human'):
         stroma['Gene Symbol'] = stroma['Gene Symbol'].map(converter.loc[stroma['Gene Symbol'], 'Human'])
     for g in stroma.groupby('Lineage'):
         ln = list(set(g[1]['Gene Symbol'].values).intersection(set(adata.var.index)))
+        
+        
         if len(ln) > 0:
-            adata.obs[g[0]] = np.sum(adata[:, ln].X, axis=1)
+            lineage_score(adata, ln, g[0])
         else:
             print('no stroma lineage specific genes detected, check species')
+
