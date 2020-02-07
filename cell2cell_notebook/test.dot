@@ -1,0 +1,212 @@
+strict digraph "" {
+	graph [labelloc=t,
+		roots="{'molecular_function': 'GO:0003674', 'cellular_component': 'GO:0005575', 'biological_process': 'GO:0008150'}"
+	];
+	node [label="\N"];
+	"GO:0006950"	 [color=black,
+		label="response to stress",
+		shape=record];
+	"GO:0033554"	 [color=black,
+		label="cellular response to stress\n55 / 142 genes\nq = 9.063243E-01",
+		shape=record];
+	"GO:0006950" -> "GO:0033554";
+	"GO:0140352"	 [color=red,
+		label="export from cell\n132 / 303 genes\nq = 2.956713E-02",
+		shape=record];
+	"GO:0032940"	 [color=red,
+		label="secretion by cell\n130 / 296 genes\nq = 2.235318E-02",
+		shape=record];
+	"GO:0140352" -> "GO:0032940";
+	"GO:0002252"	 [color=red,
+		label="immune effector process\n139 / 300 genes\nq = 8.943592E-04",
+		shape=record];
+	"GO:0043299"	 [color=red,
+		label="leukocyte degranulation\n77 / 147 genes\nq = 8.943592E-04",
+		shape=record];
+	"GO:0002252" -> "GO:0043299";
+	"GO:0002443"	 [color=red,
+		label="leukocyte mediated immunity\n107 / 222 genes\nq = 1.296893E-03",
+		shape=record];
+	"GO:0002252" -> "GO:0002443";
+	"GO:0002263"	 [color=red,
+		label="cell activation involved in immune response\n94 / 192 genes\nq = 1.844953E-03",
+		shape=record];
+	"GO:0002252" -> "GO:0002263";
+	"GO:0045321"	 [color=red,
+		label="leukocyte activation\n143 / 312 genes\nq = 1.138523E-03",
+		shape=record];
+	"GO:0002274"	 [color=red,
+		label="myeloid leukocyte activation\n96 / 189 genes\nq = 4.303574E-04",
+		shape=record];
+	"GO:0045321" -> "GO:0002274";
+	"GO:0002366"	 [color=red,
+		label="leukocyte activation involved in immune response\n94 / 190 genes\nq = 1.296893E-03",
+		shape=record];
+	"GO:0045321" -> "GO:0002366";
+	"GO:0002444"	 [color=red,
+		label="myeloid leukocyte mediated immunity\n80 / 153 genes\nq = 7.837452E-04",
+		shape=record];
+	"GO:0002446"	 [color=red,
+		label="neutrophil mediated immunity\n78 / 144 genes\nq = 3.735904E-04",
+		shape=record];
+	"GO:0002444" -> "GO:0002446";
+	"GO:0031982"	 [color=black,
+		label=vesicle,
+		shape=record];
+	"GO:0097708"	 [color=black,
+		label="intracellular vesicle",
+		shape=record];
+	"GO:0031982" -> "GO:0097708";
+	"GO:0045055"	 [color=red,
+		label="regulated exocytosis\n96 / 212 genes\nq = 4.231098E-02",
+		shape=record];
+	"GO:0045055" -> "GO:0043299";
+	"GO:0043227"	 [color=black,
+		label="membrane-bounded organelle",
+		shape=record];
+	"GO:0043227" -> "GO:0031982";
+	"GO:0002283"	 [color=red,
+		label="neutrophil activation involved in immune response\n76 / 141 genes\nq = 4.303574E-04",
+		shape=record];
+	"GO:0043312"	 [color=red,
+		label="neutrophil degranulation\n75 / 139 genes\nq = 4.303574E-04",
+		shape=record];
+	"GO:0002283" -> "GO:0043312";
+	"GO:0043299" -> "GO:0043312";
+	"GO:0006887"	 [color=red,
+		label="exocytosis\n102 / 219 genes\nq = 1.001420E-02",
+		shape=record];
+	"GO:0032940" -> "GO:0006887";
+	"GO:0099503"	 [color=red,
+		label="secretory vesicle\n133 / 306 genes\nq = 3.024498E-02",
+		shape=record];
+	"GO:0030141"	 [color=black,
+		label="secretory granule\n123 / 290 genes\nq = 1.178735E-01",
+		shape=record];
+	"GO:0099503" -> "GO:0030141";
+	"GO:0070820"	 [color=red,
+		label="tertiary granule\n34 / 58 genes\nq = 2.043776E-02",
+		shape=record];
+	"GO:0043229"	 [color=black,
+		label="intracellular organelle",
+		shape=record];
+	"GO:0043229" -> "GO:0097708";
+	"GO:0005622"	 [color=black,
+		label=intracellular,
+		shape=record];
+	"GO:0005622" -> "GO:0043229";
+	"GO:0005737"	 [color=black,
+		label=cytoplasm,
+		shape=record];
+	"GO:0005622" -> "GO:0005737";
+	"GO:0031410"	 [color=black,
+		label="cytoplasmic vesicle",
+		shape=record];
+	"GO:0097708" -> "GO:0031410";
+	"GO:0006810"	 [color=black,
+		label=transport,
+		shape=record];
+	"GO:0006810" -> "GO:0140352";
+	"GO:0046903"	 [color=black,
+		label="secretion\n141 / 344 genes\nq = 2.227471E-01",
+		shape=record];
+	"GO:0006810" -> "GO:0046903";
+	"GO:0016192"	 [color=red,
+		label="vesicle-mediated transport\n176 / 402 genes\nq = 1.844953E-03",
+		shape=record];
+	"GO:0006810" -> "GO:0016192";
+	"GO:0043226"	 [color=black,
+		label=organelle,
+		shape=record];
+	"GO:0043226" -> "GO:0043227";
+	"GO:0043226" -> "GO:0043229";
+	"GO:0002446" -> "GO:0043312";
+	"GO:0050896"	 [color=black,
+		label="response to stimulus",
+		shape=record];
+	"GO:0050896" -> "GO:0006950";
+	"GO:0051716"	 [color=black,
+		label="cellular response to stimulus",
+		shape=record];
+	"GO:0050896" -> "GO:0051716";
+	"GO:0006955"	 [color=black,
+		label="immune response",
+		shape=record];
+	"GO:0050896" -> "GO:0006955";
+	"GO:0051716" -> "GO:0033554";
+	"GO:0012505"	 [color=black,
+		label="endomembrane system",
+		shape=record];
+	"GO:0012505" -> "GO:0030141";
+	"GO:0036230"	 [color=red,
+		label="granulocyte activation\n81 / 150 genes\nq = 3.735904E-04",
+		shape=record];
+	"GO:0042119"	 [color=red,
+		label="neutrophil activation\n81 / 148 genes\nq = 3.514241E-04",
+		shape=record];
+	"GO:0036230" -> "GO:0042119";
+	"GO:0051234"	 [color=black,
+		label="establishment of localization",
+		shape=record];
+	"GO:0051234" -> "GO:0006810";
+	"GO:0046903" -> "GO:0032940";
+	"GO:0016192" -> "GO:0006887";
+	"GO:0006955" -> "GO:0002263";
+	"GO:0030141" -> "GO:0070820";
+	"GO:0031410" -> "GO:0099503";
+	"GO:0034976"	 [color=red,
+		label="response to endoplasmic reticulum stress\n18 / 24 genes\nq = 1.067908E-02",
+		shape=record];
+	"GO:0002443" -> "GO:0002444";
+	"GO:0042119" -> "GO:0002283";
+	"GO:0005575"	 [color=black,
+		label=cellular_component,
+		shape=record];
+	"GO:0005575" -> "GO:0005622";
+	"GO:0110165"	 [color=black,
+		label="cellular anatomical entity",
+		shape=record];
+	"GO:0005575" -> "GO:0110165";
+	"GO:0002263" -> "GO:0002366";
+	"GO:0051179"	 [color=black,
+		label=localization,
+		shape=record];
+	"GO:0051179" -> "GO:0051234";
+	"GO:0001775"	 [color=red,
+		label="cell activation\n161 / 370 genes\nq = 6.960341E-03",
+		shape=record];
+	"GO:0001775" -> "GO:0045321";
+	"GO:0001775" -> "GO:0002263";
+	"GO:0002376"	 [color=black,
+		label="immune system process",
+		shape=record];
+	"GO:0002376" -> "GO:0002252";
+	"GO:0002376" -> "GO:0045321";
+	"GO:0002376" -> "GO:0006955";
+	"GO:0006887" -> "GO:0045055";
+	"GO:0110165" -> "GO:0043226";
+	"GO:0110165" -> "GO:0012505";
+	"GO:0110165" -> "GO:0005737";
+	"GO:0005737" -> "GO:0031410";
+	"GO:0002275"	 [color=red,
+		label="myeloid cell activation involved in immune response\n79 / 155 genes\nq = 1.831580E-03",
+		shape=record];
+	"GO:0002275" -> "GO:0002283";
+	"GO:0008150"	 [color=black,
+		label=biological_process,
+		shape=record];
+	"GO:0008150" -> "GO:0050896";
+	"GO:0008150" -> "GO:0051179";
+	"GO:0008150" -> "GO:0002376";
+	"GO:0009987"	 [color=black,
+		label="cellular process",
+		shape=record];
+	"GO:0008150" -> "GO:0009987";
+	"GO:0002274" -> "GO:0036230";
+	"GO:0002274" -> "GO:0002275";
+	"GO:0002366" -> "GO:0002275";
+	"GO:0033554" -> "GO:0034976";
+	"GO:0009987" -> "GO:0140352";
+	"GO:0009987" -> "GO:0051716";
+	"GO:0009987" -> "GO:0001775";
+}

@@ -1,0 +1,42 @@
+# pseudotime analysis of transcription factor change
+
+# need to assign time https://nbviewer.jupyter.org/github/theislab/paga/blob/master/blood/simulated/simulated.ipynb
+
+# human assigned
+paths = [('MEP-Meg', [0,2,10]),
+         ('Meg-Erythro', [0,2,9,7]),
+         ('CMP-gran', [0,1,4,8]),
+         ('CMP-NK', [0,1,4,7]),
+         ('CMP-Ly', [0,1,4,7])
+        ]
+
+#
+gene_names = ['GATA2', 'LYL1', 'AML', 'TAL1', 'FLI1', 'ERG', 'RUNX1', 'LMO2', 'SCL', 'GATA1', 'ENO1', 
+              'PBX1', 'KLF', 'IRF8', 'SATB1', 'RUNX2', 'JUNB', 'GFI1', 'SPI1', 'CEBPA']
+
+# make sure they are present
+gene_names = list(set(gene_names).intersection(concat_one.var_names))
+
+# plotting
+import matplotlib.pyplot as plt
+_, axs = plt.subplots(ncols=len(paths), figsize=(12, 5), gridspec_kw={'wspace': 0.05, 'left': 0.12})
+plt.subplots_adjust(left=0.05, right=0.98, top=0.82, bottom=0.2)
+for ipath, (descr, path) in enumerate(paths):
+    _, data = sc.pl.paga_path(
+        concat_one, path, gene_names,
+        show_node_names=False,
+        ax=axs[ipath],
+        ytick_fontsize=12,
+        left_margin=0.15,
+        n_avg=50,
+        annotations=['dpt_pseudotime'],
+        show_yticks=True if ipath==0 else False,
+        show_colorbar=False,
+        color_map='coolwarm',
+        color_maps_annotations={'distance': 'viridis'},
+        title='{} path'.format(descr),
+        return_data=True,
+        show=False)
+    
+
+plt.show()
