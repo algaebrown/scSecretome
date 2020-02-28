@@ -1,6 +1,7 @@
 # scSecretome
 
 Single Cell analysis on the secretome aspect of haematopoietic stem cells
+[Presentation Here](https://drive.google.com/file/d/1WaI8buVv79Nqwmrgr63iH0zvlX6cMGJn/view?usp=sharing)
 
 1. `sc_notebook`: exploratory analysis on single cell data on stromal/haematopoietic cells in human/mice bone marrow
     - 5 datasets are available: `pellin` contains human haematopoietic stem cell. `wolock`, `tikhonova`, `barynowano` contain mouse stroma. Each dataset are enriched with different cell type, since different FAC enrichment strategy used.
